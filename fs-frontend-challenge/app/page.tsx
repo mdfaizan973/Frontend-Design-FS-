@@ -101,7 +101,7 @@ export default function main() {
     localStorage.setItem("aps_user", JSON.stringify(user));
 
     showToast(`Welcome, ${firstName}! Account created.`, "success");
-    setTimeout(() => router.push("/"), 1000);
+    setTimeout(() => switchMode("login"), 1000);
   }
 
   function handleLogin(e: React.FormEvent) {
