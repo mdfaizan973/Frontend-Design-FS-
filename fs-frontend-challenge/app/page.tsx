@@ -146,7 +146,7 @@ export default function main() {
     }
 
     showToast(`Welcome back, ${user.firstName}!`, "success");
-    setTimeout(() => router.push("/scan-list"), 1000);
+    setTimeout(() => router.push("/screens/dashboard"), 1000);
   }
 
   const darkBg = [
