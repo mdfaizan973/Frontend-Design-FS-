@@ -71,6 +71,7 @@ export default function main() {
   }
 
   function handleSignup(e: React.FormEvent) {
+
     e.preventDefault();
 
     const next: Record<string, string> = {};
@@ -100,11 +101,19 @@ export default function main() {
     const user: StoredUser = { firstName, lastName, email, password };
     localStorage.setItem("aps_user", JSON.stringify(user));
 
-    showToast(`Welcome, ${firstName}! Account created.`, "success");
-    setTimeout(() => switchMode("login"), 1000);
+    // showToast(`Account created! Please log in.`, "success");
+    // setTimeout(() => switchMode("login"), 1500);
+    showToast("Account created successfully! You can now log in.", "success");
+
+    setMode("login");
+
+    setPassword("");
+    setAgreedToTerms(false);
+    setErrors({});
   }
 
   function handleLogin(e: React.FormEvent) {
+
     e.preventDefault();
 
     const next: Record<string, string> = {};
@@ -137,7 +146,7 @@ export default function main() {
     }
 
     showToast(`Welcome back, ${user.firstName}!`, "success");
-    setTimeout(() => router.push("/screens/dashboard"), 1000);
+    setTimeout(() => router.push("/scan-list"), 1000);
   }
 
   const darkBg = [
