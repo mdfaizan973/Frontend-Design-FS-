@@ -11,7 +11,7 @@ interface StoredUser {
   password: string;
 }
 
-export default function LoginPage() {
+export default function main() {
   const router = useRouter();
 
   const [mode, setMode] = useState<"signup" | "login">("signup");

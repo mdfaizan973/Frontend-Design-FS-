@@ -1,4 +1,4 @@
-import { AlertCircle, AlertTriangle, Ban, CircleOff, Info, Search, SearchAlert } from "lucide-react";
+import { AlertTriangle, Ban, SearchAlert } from "lucide-react";
 
 interface VulnCount {
     critical: number;

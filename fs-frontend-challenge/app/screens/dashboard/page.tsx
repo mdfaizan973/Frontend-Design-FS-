@@ -14,19 +14,10 @@ import {
   Search,
   Filter,
   Columns3,
-  Plus,
-  RefreshCw,
-  AlertCircle,
-  AlertTriangle,
-  Info,
   Menu,
   X,
   Sun,
   Moon,
-  Download,
-  StopCircle,
-  TrendingUp,
-  TrendingDown,
   LogOut,
 } from "lucide-react";
 import Listing from "../components/Listing";
@@ -34,14 +25,11 @@ import NewScan from "../components/NewScan";
 import Projects from "../components/Projects";
 import Schedule from "../components/Schedule";
 
-
 interface StoredUser {
   firstName: string;
   lastName: string;
   email: string;
 }
-
-
 
 const NAV_ITEMS = [
   { label: "Dashboard", icon: LayoutDashboard },
@@ -55,6 +43,7 @@ const NAV_BOTTOM = [
   { label: "Settings", icon: Settings },
   { label: "Support", icon: HelpCircle },
 ];
+
 export default function ScanListPage() {
   const router = useRouter();
   const [user, setUser] = useState<StoredUser | null>(null);
