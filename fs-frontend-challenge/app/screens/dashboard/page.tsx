@@ -75,6 +75,7 @@ export default function ScanListPage() {
   const tm = dark ? "text-gray-600" : "text-gray-400";
   const div = dark ? "border-white/8" : "border-gray-200";
 
+  
   return (
     <div
       className={`h-screen w-screen flex overflow-hidden ${dark ? "bg-[#0a0f13] text-white" : "bg-[#F5F5F5] text-gray-900"}`}
