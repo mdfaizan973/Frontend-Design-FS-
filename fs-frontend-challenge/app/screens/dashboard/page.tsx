@@ -30,6 +30,9 @@ import {
   LogOut,
 } from "lucide-react";
 import Listing from "../components/Listing";
+import NewScan from "../components/NewScan";
+import Projects from "../components/Projects";
+import Schedule from "../components/Schedule";
 
 
 interface StoredUser {
@@ -249,6 +252,24 @@ export default function ScanListPage() {
           activeNav === "Dashboard" &&
           <Listing dark={dark} />
         }
+
+        {activeNav === "Scans" && (
+          <div className="p-4">
+            <NewScan dark={dark} />
+          </div>
+        )}
+
+        {activeNav === "Projects" && (
+          <div className="p-4">
+            <Projects dark={dark} />
+          </div>
+        )}
+
+        {activeNav === "Schedule" && (
+          <div className="p-4">
+            <Schedule dark={dark} />
+          </div>
+        )}
 
       </div>
     </div>
