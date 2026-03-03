@@ -75,17 +75,6 @@ export default function ScanListPage() {
   const tm = dark ? "text-gray-600" : "text-gray-400";
   const div = dark ? "border-white/8" : "border-gray-200";
 
-
-  const inputCls = dark
-    ? "bg-[#161b21] border-white/10 text-white placeholder-gray-500 focus:border-[#0CC8A8]"
-    : "bg-white border-gray-200 text-gray-800 placeholder-gray-400 focus:border-[#0CC8A8]";
-  const theadCls = dark
-    ? "bg-[#161b21] text-gray-500 border-b border-white/6"
-    : "bg-gray-50 text-gray-400 border-b border-gray-200";
-  const rowCls = dark
-    ? "border-b border-white/5 hover:bg-white/[0.03]"
-    : "border-b border-gray-100 hover:bg-gray-50/80";
-
   return (
     <div
       className={`h-screen w-screen flex overflow-hidden ${dark ? "bg-[#0a0f13] text-white" : "bg-[#F5F5F5] text-gray-900"}`}
@@ -243,7 +232,7 @@ export default function ScanListPage() {
         }
 
         {activeNav === "Scans" && (
-          <div className="p-4">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-5">
             <NewScan dark={dark} />
           </div>
         )}

@@ -18,6 +18,11 @@ interface Scan {
     target: string;
 }
 
+interface LogPart {
+    text: string;
+    type: string;
+}
+
 export function StatusChip({ status }: { status: Scan["status"] }) {
     const styles: Record<Scan["status"], string> = {
         Completed: "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400",
@@ -78,3 +83,39 @@ export function SeverityIcon({ icon, color }: { icon: string; color: string }) {
     return <span style={{ color }}>{map[icon]}</span>;
 }
 
+export function getSeverityStyles(severity: string, dark: boolean) {
+    const map: Record<string, { dark: string; light: string }> = {
+        Critical: {
+            dark: "bg-red-500/15 text-red-400 border border-red-500/25",
+            light: "bg-red-100 text-red-700 border border-red-200",
+        },
+        High: {
+            dark: "bg-orange-500/15 text-orange-400 border border-orange-500/25",
+            light: "bg-orange-100 text-orange-700 border border-orange-200",
+        },
+        Medium: {
+            dark: "bg-yellow-500/15 text-yellow-400 border border-yellow-500/25",
+            light: "bg-yellow-100 text-yellow-700 border border-yellow-200",
+        },
+        Low: {
+            dark: "bg-green-500/15 text-green-400 border border-green-500/25",
+            light: "bg-green-100 text-green-700 border border-green-200",
+        },
+    };
+    return dark ? map[severity]?.dark : map[severity]?.light;
+}
+
+export function LogLine({ parts, dark }: { parts: LogPart[]; dark: boolean }) {
+    return (
+        <>
+            {parts.map((p, i) => {
+                if (p.type === "link") return <span key={i} className={` ${dark ? "text-[#0CC8A8]": "text-[#ccc]"} cursor-pointer hover:underline`}>{p.text}</span>;
+                if (p.type === "path") return <span key={i} className={dark ? "text-teal-300" : "text-teal-600"}>{p.text}</span>;
+                if (p.type === "highlight") return <span key={i} className={dark ? "text-amber-300" : "text-amber-600"}>{p.text}</span>;
+                if (p.type === "header") return <span key={i} className={dark ? "text-purple-300" : "text-purple-600"}>{p.text}</span>;
+                if (p.type === "vuln") return <span key={i} className={`font-semibold ${dark ? "text-red-400" : "text-red-600"}`}>{p.text}</span>;
+                return <span key={i} className="whitespace-pre-wrap">{p.text}</span>;
+            })}
+        </>
+    );
+}
