@@ -7,7 +7,7 @@ A modern, full-stack cybersecurity scanning platform built with Next.js. Provide
 ## Live Demo
 
 🔗 [View on Vercel](https://fenrir-fizzy.vercel.app/)
-🔗 [View Demo](https://fenrir-fizzy.vercel.app/)
+🔗 [View Demo](https://vimeo.com/reviews/c904e87c-ac89-42b2-bc2e-078a7fe3b760/videos/1169995353)
 ---
 
 ## Screens
